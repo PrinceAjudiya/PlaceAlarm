@@ -34,10 +34,19 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-core:17.2.2'
 
+    //google sign-in
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
+
+    //google map
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
+
+    //material serach br
     implementation 'com.github.mancj:MaterialSearchBar:0.8.2'
+
+    //Permission activity
     implementation 'com.karumi:dexter:6.0.2'
+
+
     // compile 'com.android.support:support-annotations:28.0.0'
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:cardview-v7:28.0.0'
@@ -47,6 +56,8 @@ dependencies {
 
     //implementation 'com.google.android.libraries.places:places-compat:2.1.0'
 
+
+    //profile photo
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.google.firebase:firebase-database:19.2.1'
@@ -68,6 +79,11 @@ dependencies {
 
     implementation 'com.google.android.gms:play-services-location:17.0.0'
     implementation 'com.karumi:dexter:6.0.0'
+
+    //For mail
+    implementation files('libs/activation.jar')
+    implementation files('libs/additionnal.jar')
+    implementation files('libs/mail.jar')
 
 
 }

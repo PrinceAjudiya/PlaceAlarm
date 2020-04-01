@@ -20,6 +20,8 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +48,12 @@ public class BackgroundActivity extends AppCompatActivity {
 
     public static double newLat , newLong;
 
+    public EditText mEmail;
+    public Button button;
+    public Button button3;
+
+
+
     public static BackgroundActivity getInstance() {
         return instance;
     }
@@ -56,8 +64,23 @@ public class BackgroundActivity extends AppCompatActivity {
         setContentView(R.layout.activity_background);
         mediaPlayer = MediaPlayer.create(this,R.raw.alarm);
         instance = this;
-        tex_location=(TextView)findViewById(R.id.tex_location);
+        //tex_location=(TextView)findViewById(R.id.tex_location);
         distNew = (TextView)findViewById(R.id.distNew);
+
+        mEmail = (EditText)findViewById(R.id.mailID);
+
+        button3 = (Button)findViewById(R.id.button3);
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendMail();
+            }
+        });
+
+
+
+
 
         Dexter.withActivity(this).withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                 .withListener(new PermissionListener() {
@@ -124,6 +147,10 @@ public class BackgroundActivity extends AppCompatActivity {
                 //{
                     mediaPlayer.stop();
                     values = false;
+                    sendMail();
+                    Intent intent = new Intent(this , MapActivity.class);
+                    startActivity(intent);
+
                 //}
 
 
@@ -141,6 +168,20 @@ public class BackgroundActivity extends AppCompatActivity {
 
         //Intent intent = new Intent(this, MapActivity.class);
         //startActivity(intent);
+    }
+
+
+
+
+
+    private void sendMail() {
+
+        String mail = mEmail.getText().toString().trim();
+
+        JavaMailAPI javaMailAPI = new JavaMailAPI(BackgroundActivity.this , mail);
+
+        javaMailAPI.execute();
+
     }
 }
 

@@ -26,7 +26,15 @@ public class ProfileActivity extends AppCompatActivity {
     public ImageView profileImage;
     public Button signOut;
     public GoogleSignInClient googleSignInClient;
+    public static String personName;
+    //public profileName = findViewById(R.id.profile_text);
+    //public profileEmail = findViewById(R.id.profile_email);
+    //public profileImage = findViewById(R.id.profile_image);
     private FirebaseAuth mAuth;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +77,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         if (account != null) {
-            String personName = account.getDisplayName();
+             personName = account.getDisplayName();
             String personEmail = account.getEmail();
             Picasso.get().load(account.getPhotoUrl()).centerInside().fit().into(profileImage);
             Uri personPhoto = account.getPhotoUrl();

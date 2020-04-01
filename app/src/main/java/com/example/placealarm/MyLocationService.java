@@ -62,7 +62,7 @@ public class MyLocationService extends BroadcastReceiver {
 
                     TextView textdist = BackgroundActivity.getInstance().findViewById(R.id.distNew);
 
-                    TextView textlocation = BackgroundActivity.getInstance().findViewById(R.id.tex_location);
+                    //TextView textlocation = BackgroundActivity.getInstance().findViewById(R.id.tex_location);
 
                     Toast.makeText(context, "dist is :::: " + dist, Toast.LENGTH_LONG).show();
 
@@ -87,7 +87,7 @@ public class MyLocationService extends BroadcastReceiver {
 
                         textdist.setText(distance);
 
-                        textlocation.setText(location_string);
+                        //textlocation.setText(location_string);
                         //BackgroundActivity.getInstance().updateTextView(distance);
                         //BackgroundActivity.getInstance().updateTextView(location_string);
 
